@@ -16,7 +16,7 @@ services:
         caproverExtra:
             containerHttpPort: '8069'
 caproverOneClickApp:
-    displayName: 'Odoo No Database'
+    displayName: 'Odoo Brasil No Database'
     variables:
         - id: $$cap_postgres_user
           label: Postgres user
