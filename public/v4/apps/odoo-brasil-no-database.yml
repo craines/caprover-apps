@@ -13,11 +13,16 @@ services:
             PG_PASSWORD: $$cap_postgres_password
             PG_HOST: $$cap_postgres_host
             PG_PORT: $$cap_postgres_port
+            ODOO_PASSWORD: $$cap_master_password
         caproverExtra:
             containerHttpPort: '8069'
 caproverOneClickApp:
     displayName: 'Odoo Brasil No Database'
     variables:
+        - id: $$cap_master_password
+          label: Master Password
+          description: 'Set master password for odoo'
+          validRegex: /.{1,}/
         - id: $$cap_postgres_user
           label: Postgres user
           description: 'Set user for postgres'
