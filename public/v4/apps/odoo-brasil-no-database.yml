@@ -4,7 +4,7 @@ networks:
         driver: bridge
 services:
     $$cap_appname:
-        image: trustcode/docker-odoo:$$cap_odoo_version
+        image: craines/odoo-brasil:$$cap_odoo_version
         volumes:
             - $$cap_appname-odoo:/opt/odoo
         restart: always
@@ -17,7 +17,7 @@ services:
         caproverExtra:
             containerHttpPort: '8069'
 caproverOneClickApp:
-    displayName: 'Odoo Brasil No Database'
+    displayName: 'Odoo 15 Brasil No Database'
     variables:
         - id: $$cap_master_password
           label: Master Password
