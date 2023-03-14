@@ -38,6 +38,10 @@ caproverOneClickApp:
           label: Postgres Password
           description: ''
           validRegex: /.{1,}/
+        - id: $$cap_master_password
+          label: Master Password
+          description: 'admin'
+          validRegex: /.{1,}/
         - id: $$cap_odoo_version
           label: Odoo Version
           defaultValue: '15.0'
