@@ -6,23 +6,21 @@ services:
     $$cap_appname:
         image: craines/odoo-brasil:$$cap_odoo_version
         volumes:
-            - $$cap_appname-odoo:/opt/odoo
+            - $$cap_appname-odoo:/var/lib/odoo
+            - $$cap_appname-addos:/mnt/addons
         restart: always
         environment:
-            PG_USER: $$cap_postgres_user
-            PG_PASSWORD: $$cap_postgres_password
-            PG_HOST: $$cap_postgres_host
-            PG_PORT: $$cap_postgres_port
+            USER: $$cap_postgres_user
+            PASSWORD: $$cap_postgres_password
+            HOST: $$cap_postgres_host
+            PORT: $$cap_postgres_port
             ODOO_PASSWORD: $$cap_master_password
+            ODOO_PORT: '8069'
         caproverExtra:
             containerHttpPort: '8069'
 caproverOneClickApp:
     displayName: 'Odoo 15 Brasil No Database'
     variables:
-        - id: $$cap_master_password
-          label: Master Password
-          description: 'Set master password for odoo'
-          validRegex: /.{1,}/
         - id: $$cap_postgres_user
           label: Postgres user
           description: 'Set user for postgres'
@@ -42,7 +40,7 @@ caproverOneClickApp:
           validRegex: /.{1,}/
         - id: $$cap_odoo_version
           label: Odoo Version
-          defaultValue: '13.0'
+          defaultValue: '15.0'
           description: Check out their docker page for the valid tags https://hub.docker.com/_/odoo?tab=tags
           validRegex: /^([^\s^\/])+$/
     instructions:
