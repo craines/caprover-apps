@@ -40,7 +40,7 @@ caproverOneClickApp:
           validRegex: /.{1,}/
         - id: $$cap_master_password
           label: Master Password
-          description: 'admin'
+          defaultValue: 'admin'
           validRegex: /.{1,}/
         - id: $$cap_odoo_version
           label: Odoo Version
